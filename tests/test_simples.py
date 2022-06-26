@@ -1,6 +1,6 @@
 import pytest
-from src.entry import convert_json_schema_to_py
-from data.example_simples import (
+from ..src.entry import convert_json_schema_to_py
+from .data.example_simples import (
     day_schema,
     number_schema,
     text_schema,
@@ -27,4 +27,7 @@ def test_simple(schema, expected_output):
     pass
     assert convert_json_schema_to_py(schema)["components"][0]["type"] == expected_output
 
+
 # print(convert_json_schema_to_py(number_schema))
+if __name__ == "__main__":
+    pass

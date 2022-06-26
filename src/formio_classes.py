@@ -39,7 +39,7 @@ class FieldContainer(FieldSetBase):
         super().__init__(**kwargs)
         self.type = "fieldset"
         self.input = False
-        self.components = []
+        self.components = None
         # self._content = kwargs
 
     def create_nested_components(self):

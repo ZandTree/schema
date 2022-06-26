@@ -1,6 +1,6 @@
 import pytest
-from src.entry import convert_json_schema_to_py
-from data.int_vs_number import (
+from finish.src.entry import convert_json_schema_to_py
+from .data.int_vs_number import (
     integer_schema,
     number_schema,
 )
@@ -20,6 +20,6 @@ def test_compair(schema, expected_output):
     """
     # print("schema is ", type(schema))
     assert (
-            convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
-            == expected_output
+        convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
+        == expected_output
     )

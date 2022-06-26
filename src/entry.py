@@ -1,6 +1,10 @@
 import json
+from pathlib import Path
 
 from .factory import FieldFactory
+
+# from data.obj import user_obj
+# from data.singles import *
 
 
 def get_single_item(content: dict) -> dict:
@@ -26,45 +30,22 @@ def convert_json_schema_to_py(json_schema: dict) -> dict:
         else:
             single_field = get_single_item(content=properties[key])
             result = convert_json_schema_to_py(json_schema=content)
-            single_field.components.append(result)
+            # single_field.components .append(result)
+            single_field.components = result["components"]
         elem = json.dumps(single_field.dict_repr)
         final_result["components"].append(json.loads(elem))
 
     return final_result
 
 
-# print(convert_json_schema_to_py(time_schema))
-"""
-{'components': 
-[
-{'legend': 'DIMENSIONS', 'key': 'fieldset', 'label': 'Field Set', 'type': 'fieldset', 'input': False, 
-'components': [
-    {'components': [
-        {'key': 'sally', 'label': None, 'description': None, 'validate': 
-        {'required': True, 'pattern': None, 'max': None, 'min': None, 'step': 'any'}, 'defaultValue': None, 
-        'input': True, 'type': 'number'}, 
-        {'key': 'polly', 'label': None, 'description': None, 'validate': {'required': True, 'pattern': None, 
-        'max': None, 'min': None, 'step': 'any'}, 'defaultValue': None, 'input': True, 'type': 'number'}
-        ]
-        }
-        ]
-        }
-        ]
-        }
-
-"""
-
-"""
-{'content': 
-{'type': 'object', 
-'description': '3D dimentions', 
-'properties': 
-    {
-        'length': {'type': 'number'}, 
-        'width': {'type': 'number'}, 
-        'height': {'type': 'number'}
-    }, 
-'required': ['length', 'width', 'height'], 
-'key': 'dimensions'
-}
-"""
+# result = convert_json_schema_to_py(user_obj)
+#
+# with open(Path("fake/may.json"), "w") as fh:
+#     json_str = json.dumps(result, indent=2)
+#     fh.write(json_str)
+#
+# with open(Path("../tests/formio_examples/user.json"), "w") as fh:
+#     json_str = json.dumps(result, indent=2)
+#     fh.write(json_str)
+if __name__ == "__main__":
+    pass
