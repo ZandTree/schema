@@ -1,5 +1,5 @@
 import pytest
-from finish.src.entry import convert_json_schema_to_py
+from ..entry import convert_json_schema_to_py
 from .data.example_object import user_obj
 
 

@@ -10,6 +10,5 @@ user_obj = {
             },
             "required": ["name", "email"],
         }
-    }
-
+    },
 }

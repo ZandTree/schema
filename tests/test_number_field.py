@@ -1,16 +1,14 @@
 import pytest
-from finish.src.entry import convert_json_schema_to_py
+from ..entry import convert_json_schema_to_py
 from .data.int_vs_number import (
     integer_schema,
-    number_schema,
 )
 
 
 @pytest.mark.parametrize(
     "schema,expected_output",
     [
-        (integer_schema, ""),
-        (number_schema, None),
+        (integer_schema, 0),
     ],
 )
 def test_compair(schema, expected_output):
@@ -18,8 +16,12 @@ def test_compair(schema, expected_output):
     if type == integer corresponding object of formIo will get key "integer"=""
     in validate dict; otherwise this key will not be included.
     """
-    # print("schema is ", type(schema))
+
     assert (
-        convert_json_schema_to_py(schema)["components"][0]["validate"].get("integer")
+        convert_json_schema_to_py(schema)["components"][0]["decimalLimit"]
+        == expected_output
+    )
+    assert (
+        convert_json_schema_to_py(schema)["components"][0]["decimalLimit"]
         == expected_output
     )

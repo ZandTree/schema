@@ -1,5 +1,7 @@
 import pytest
-from ..src.entry import convert_json_schema_to_py
+from ..entry import convert_json_schema_to_py
+
+# import from own folder ( func self has its own source of data inside finish)
 from .data.example_simples import (
     day_schema,
     number_schema,
@@ -24,7 +26,6 @@ from .data.example_simples import (
     ],
 )
 def test_simple(schema, expected_output):
-    pass
     assert convert_json_schema_to_py(schema)["components"][0]["type"] == expected_output
 
 

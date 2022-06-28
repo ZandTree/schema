@@ -1,3 +1,22 @@
+small = {
+    "required": ["kenteken"],
+    "title": "Het  Ruimte",
+    "properties": {
+        "kenteken": {
+            "title": "Kenteken",
+            "type": "string",
+            "pattern": "^[A-Z0-9]$",
+            "description": "Kenteken van het voertuig...",
+            "maxLength": 250,
+        }
+    },
+}
+number_schema = {
+    "required": ["huisnummer"],
+    "title": "Het objecttype Melding Openbare Ruimte",
+    "properties": {"huisnummer": {"title": "home number", "type": "number"}},
+}
+
 day_schema = {
     "$schema": "http://json-schema.org/draft-07/schema",
     "required": ["kenteken", "expired"],
@@ -68,12 +87,7 @@ textarea_schema = {
         }
     },
 }
-number_schema = {
-    "$schema": "http://json-schema.org/draft-07/schema",
-    "required": ["kenteken", "postcode", "huisnummer", "expired"],
-    "title": "Het objecttype Melding Openbare Ruimte",
-    "properties": {"huisnummer": {"title": "home number", "type": "number"}},
-}
+
 email_schema = {
     "$schema": "http://json-schema.org/draft-07/schema",
     "required": ["kenteken", "postcode", "huisnummer", "expired", "email"],
@@ -90,13 +104,10 @@ myobj = {
         "user": {
             "type": "object",
             "properties": {
-                "name": {"type": "string"},
+                "name": {"type": "string", "description": "Write your  name, please"},
                 "email": {"type": "string", "format": "email"},
             },
             "required": ["name", "email"],
         }
     },
-    "required": ["user"],
 }
-
-

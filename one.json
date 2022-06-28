@@ -1,0 +1,37 @@
+{
+  "components": [
+    {
+      "key": "user",
+      "legend": "USER",
+      "label": "Field Set",
+      "input": false,
+      "type": "fieldset",
+      "components": [
+        {
+          "key": "name",
+          "description": "Write your  name, please",
+          "validate": {
+            "required": true,
+            "pattern": null,
+            "minWords": null,
+            "maxWords": null
+          },
+          "defaultValue": null,
+          "input": true,
+          "type": "textarea"
+        },
+        {
+          "key": "email",
+          "description": null,
+          "validate": {
+            "required": true,
+            "pattern": null
+          },
+          "defaultValue": null,
+          "input": true,
+          "type": "email"
+        }
+      ]
+    }
+  ]
+}

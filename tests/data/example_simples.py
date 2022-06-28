@@ -82,5 +82,3 @@ email_schema = {
         "email": {"title": "Your email", "type": "string", "format": "email"}
     },
 }
-
-
